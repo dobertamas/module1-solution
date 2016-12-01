@@ -1,13 +1,23 @@
-(function functionName() {
+(function () {
 
   'use strict';
 
 angular.module('LunchCheck', [])
-.controller('LunchCheckController', function ($scope) {
+.controller('LunchCheckController', LunchCheckController);
+
+	function LunchCheckController ($scope) {
   $scope.listOfDishes =['soup','fish','salat'];
   $scope.name="Tamas";
-  console.log(name);
-});
+  $scope.inputList;
+  $scope.splittedList;
+  $scope.splitInput = function(inputList){
+  	splittedList=inputList.split(',');
+  	//console.log(splittedList)
+
+  }
+
+
+}
 
 
 
