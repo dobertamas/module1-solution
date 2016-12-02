@@ -27,11 +27,11 @@
              class="form-control">
          </div>
          <div class="form-group">
-             <button ng-click="splitInput();"
+             <button ng-click="splittedList()"
              class="btn btn-default">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div ng-model="splittedList" class="form-group message">
+           {{splittedList}}
          </div>
    </div>
 </div>
