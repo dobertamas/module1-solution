@@ -6,9 +6,9 @@ angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 
   function LunchCheckController ($scope) {
-    //$scope.listOfDishes =['soup','fish','salat'];
     $scope.inputList;
     $scope.splittedList;
+    $scope.messageToDisplay = "";
 
   $scope.splittedList = function  (){ 
 	splitString($scope.inputList,',');
@@ -25,6 +25,9 @@ angular.module('LunchCheck', [])
     function countSplittedList(){
     	var count = $scope.splittedList.length;
     	console.log(count);
+    	if (count == 0) $scope.messageToDisplay = "Please enter data first";
+    	if (count < 4) $scope.messageToDisplay = "Enjoy!";
+    	if (count >= 4) $scope.messageToDisplay = "Too much!";
     }
 
   }
