@@ -13,22 +13,23 @@ angular.module('LunchCheck', [])
     $scope.messageToDisplay = "";
 
   $scope.splittedList = function  (){ 
+  	if (!$scope.inputList || !$scope.inputList.length) $scope.messageToDisplay = "Please enter data first"; 
 	splitString($scope.inputList,',');
 	countSplittedList();
   }
 
     function splitString(inputList,separator){
-  	console.log(inputList);
+  	//console.log(inputList);
   	var splittedList = inputList.split(separator);
-  	console.log(splittedList);
+  	//console.log(splittedList);
   	$scope.splittedList = splittedList;
     }
 
     function countSplittedList(){
     	var count = $scope.splittedList.length;
     	console.log(count);
-    	if (count == 0) $scope.messageToDisplay = "Please enter data first";
-    	if (count < 4) $scope.messageToDisplay = "Enjoy!";
+    	if ($scope.splittedList[0].length == 0) return;
+    	if (count < 4 && count > 0) $scope.messageToDisplay = "Enjoy!";
     	if (count >= 4) $scope.messageToDisplay = "Too much!";
     }
 
