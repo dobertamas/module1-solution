@@ -5,8 +5,10 @@
 angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 
+  LunchCheckController.$inject = ['$scope'];
+
   function LunchCheckController ($scope) {
-    $scope.inputList;
+    $scope.inputList = "";
     $scope.splittedList;
     $scope.messageToDisplay = "";
 
